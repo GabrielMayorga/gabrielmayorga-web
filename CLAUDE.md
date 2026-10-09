@@ -17,6 +17,7 @@ npm run dev          # desarrollo en http://localhost:3000
 npm run build        # build de producción (debe pasar antes de cada commit de fase)
 npm run check        # typecheck + lint + formato (correr antes de cada commit)
 npm run format       # aplicar Prettier
+npm run preview      # build de producción servido a la red local (probar en el celular)
 ```
 
 ## Stack (no cambiar sin consultar a Gabriel)
@@ -28,6 +29,9 @@ npm run format       # aplicar Prettier
 - Despliegue en Vercel. npm como gestor de paquetes. Versiones exactas en dependencias nuevas.
 
 ### Particularidades de Next 16.4 que ya mordieron
+
+- No correr `npm run build` con `npm run dev` encendido: Turbopack se queda con CSS viejo. Si pasa, detener el servidor y borrar `.next`.
+- Sitio de una sola página: enlaces internos con `<a href="#seccion">`, **no** `next/link` (precarga rutas inexistentes y suma trabajo al cargar).
 
 - Antes de usar una API de Next, leer su guía en `node_modules/next/dist/docs/` (ver AGENTS.md).
 - Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` **rompen el prerender**, tanto en Server como en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
@@ -96,6 +100,12 @@ src/
 - Lighthouse móvil ≥ 95 en rendimiento, accesibilidad, buenas prácticas y SEO.
 - Contraste AA, sin layout shift, sin `any`, `npm run check` y `npm run build` en verde.
 - Diseño mobile-first: la mayoría de clientes llega desde el celular.
+
+## Medir rendimiento
+
+- Lighthouse en local varía mucho (CPU compartida con Windows/WSL; TTFB local ~460 ms). Correr 3–5 veces sobre `next build` + `next start` y usar la mediana; mirar `benchmarkIndex` de cada corrida.
+- El LCP simulado de Lighthouse incluye el JS async de React aunque no bloquee el pintado; revisar el LCP observado. El criterio ≥ 95 se valida en producción (PageSpeed Insights sobre Vercel).
+- El fondo líquido del hero fue medido: no cuesta nada en el hilo principal. No cambiarlo a JS.
 
 ## Flujo de trabajo
 
