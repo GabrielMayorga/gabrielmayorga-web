@@ -1,0 +1,208 @@
+/*
+ * Design tokens — fuente única de verdad del sistema visual.
+ *
+ * Tres capas:
+ *   1. Primitivos: valores crudos (la paleta). Solo se referencian aquí.
+ *   2. Semánticos: el propósito de cada color, con su valor claro y oscuro
+ *      en la misma línea gracias a light-dark(). Esto es lo que usan los componentes.
+ *   3. Componente: materiales y piezas compuestas (vidrio, foco, sombras).
+ *
+ * Cambiar la paleta = editar este archivo. Ningún componente usa hex directos.
+ * El tema lo decide `color-scheme`: sistema por defecto, o forzado con
+ * data-theme="light" | "dark" en <html> (el script anti-parpadeo lo pone).
+ */
+
+:root {
+  /* ── 1. Primitivos ─────────────────────────────────────────────── */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #0b1120;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --white: #ffffff;
+
+  /* ── 2. Semánticos (claro, oscuro) ─────────────────────────────── */
+  color-scheme: light dark;
+
+  /* Fondos y superficies */
+  --canvas: light-dark(var(--white), var(--slate-900)); /* fondo de página */
+  --canvas-subtle: light-dark(var(--slate-50), var(--slate-950)); /* bandas alternas */
+  --surface: light-dark(var(--slate-100), var(--slate-800)); /* superficie elevada */
+
+  /* Texto — contraste AA verificado (ver CLAUDE.md) */
+  --fg: light-dark(var(--slate-900), var(--slate-50)); /* 17.9 / 17.1 */
+  --fg-muted: light-dark(var(--slate-600), var(--slate-400)); /* 7.6 / 7.0 */
+
+  /* Acento */
+  --accent: light-dark(var(--blue-600), var(--blue-500)); /* marca: íconos, brillos, foco */
+  --accent-text: light-dark(var(--blue-600), var(--blue-400)); /* enlaces y texto en azul */
+  --accent-solid: var(--blue-600); /* fondo de botón principal (blanco encima: 5.2) */
+  --accent-solid-hover: light-dark(#1d4ed8, #3b76f0);
+  --on-accent: var(--white);
+
+  /* Líneas */
+  --hairline: light-dark(rgb(15 23 42 / 0.08), rgb(148 163 184 / 0.14));
+  --hairline-strong: light-dark(rgb(15 23 42 / 0.14), rgb(148 163 184 / 0.24));
+
+  /* ── 3. Componente ─────────────────────────────────────────────── */
+
+  /* Vidrio esmerilado legible: opaco suficiente para que el texto nunca pierda contraste */
+  --glass-bg: light-dark(rgb(255 255 255 / 0.72), rgb(15 23 42 / 0.68));
+  --glass-border: light-dark(rgb(15 23 42 / 0.08), rgb(148 163 184 / 0.16));
+  --glass-highlight: light-dark(
+    rgb(255 255 255 / 0.9),
+    rgb(255 255 255 / 0.06)
+  ); /* luz en el borde superior */
+  --glass-blur: 20px;
+  --glass-saturate: 180%;
+
+  /* Sombras: capas suaves y difusas, nunca una sola sombra dura */
+  --shadow-color: light-dark(rgb(15 23 42 / 0.06), rgb(0 0 0 / 0.32));
+  --elevation-sm: 0 1px 2px var(--shadow-color);
+  --elevation-md: 0 1px 2px var(--shadow-color), 0 8px 24px -8px var(--shadow-color);
+  --elevation-lg: 0 2px 4px var(--shadow-color), 0 24px 48px -16px var(--shadow-color);
+
+  /* Foco: visible siempre, mismo color de marca */
+  --focus-ring: var(--accent);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* Movimiento */
+  /* Curvas: --ease-fluid y --ease-out-soft viven en @theme (abajo) */
+  --duration-press: 120ms; /* respuesta táctil: debe sentirse instantánea */
+  --duration-fast: 300ms;
+  --duration-base: 450ms;
+  --duration-slow: 600ms;
+  --duration-theme: 300ms; /* cambio claro↔oscuro sin saltos de brillo */
+
+  /* Layout */
+  --content-max: 72rem; /* 1152px */
+  --gutter: clamp(1.5rem, 1rem + 2.5vw, 3rem); /* 24 → 48px */
+  --section-space: clamp(6rem, 4rem + 8vw, 10rem); /* 96 → 160px */
+  --nav-height: 4rem; /* 64px */
+  --tap-min: 2.75rem; /* 44px: objetivo táctil mínimo */
+}
+
+/* Tema forzado por el usuario */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* Accesibilidad: el vidrio se vuelve sólido si el usuario reduce transparencias */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: var(--canvas);
+    --glass-blur: 0px;
+  }
+}
+
+/* Accesibilidad: más contraste en bordes y texto secundario */
+@media (prefers-contrast: more) {
+  :root {
+    --fg-muted: var(--fg);
+    --hairline: light-dark(rgb(15 23 42 / 0.4), rgb(248 250 252 / 0.4));
+    --hairline-strong: light-dark(rgb(15 23 42 / 0.6), rgb(248 250 252 / 0.6));
+    --glass-bg: var(--canvas);
+    --glass-blur: 0px;
+  }
+}
+
+/* ── Puente a Tailwind ─────────────────────────────────────────── */
+
+/* El tema oscuro lo decide data-theme en <html> (lo pone el script anti-parpadeo). */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Puente tokens → utilidades de Tailwind.
+ * Se borran las escalas por defecto de color, texto, radio y sombra para que
+ * solo existan las del sistema: si una clase no está aquí, no se puede usar.
+ */
+@theme {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-*: initial;
+
+  /* Escala tipográfica modular (~1.25), fluida entre móvil y escritorio.
+     Tracking negativo que crece con el tamaño; interlineado que baja. */
+  --text-caption: 0.8125rem; /* 13 */
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.01em;
+
+  --text-small: 0.9375rem; /* 15 */
+  --text-small--line-height: 1.5;
+  --text-small--letter-spacing: 0;
+
+  --text-body: clamp(1.0625rem, 1.025rem + 0.19vw, 1.125rem); /* 17 → 18 */
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: -0.01em;
+
+  --text-lead: clamp(1.1875rem, 1.1rem + 0.45vw, 1.375rem); /* 19 → 22 */
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: -0.012em;
+
+  --text-title-3: clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem); /* 22 → 28 */
+  --text-title-3--line-height: 1.25;
+  --text-title-3--letter-spacing: -0.015em;
+
+  --text-title-2: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem); /* 28 → 40 */
+  --text-title-2--line-height: 1.15;
+  --text-title-2--letter-spacing: -0.022em;
+
+  --text-title-1: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem); /* 36 → 56 */
+  --text-title-1--line-height: 1.08;
+  --text-title-1--letter-spacing: -0.028em;
+
+  --text-display: clamp(2.75rem, 1.75rem + 5vw, 5.5rem); /* 44 → 88 */
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.035em;
+
+  /* Radios. Regla concéntrica: radio interno = radio externo − padding.
+     Ej.: tarjeta rounded-xl (32) con p-4 (16) → hijo rounded-md (16). */
+  --radius-xs: 0.5rem; /* 8 */
+  --radius-sm: 0.75rem; /* 12 */
+  --radius-md: 1rem; /* 16 */
+  --radius-lg: 1.5rem; /* 24 */
+  --radius-xl: 2rem; /* 32 */
+  --radius-full: 9999px;
+
+  --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1); /* curva principal, tipo spring */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* `inline` porque estos valores cambian con el tema: se resuelven en tiempo de uso. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-subtle: var(--canvas-subtle);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-on-accent: var(--on-accent);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+
+  /* Las variables --font-* las inyecta next/font en <html> (ver src/app/fonts.ts) */
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
