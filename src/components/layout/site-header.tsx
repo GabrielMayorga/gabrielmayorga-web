@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { site } from '@/content/site'
 import { ButtonLink } from '@/components/ui/button'
 import { BrandIcon } from '@/components/ui/icons'
@@ -15,13 +14,13 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 glass-bar">
       <div className="container-page flex h-(--nav-height) items-center justify-between gap-4">
-        <Link
-          href="/"
-          aria-label={site.ui.homeLink}
+        <a
+          href="#contenido"
           className="-ml-2 inline-flex min-h-11 items-center rounded-full px-2 text-body"
         >
           <Monogram />
-        </Link>
+          <span className="sr-only">{site.ui.homeLink}</span>
+        </a>
 
         <nav aria-label={site.ui.navLabel} className="hidden md:block">
           <ul className="flex items-center gap-1">

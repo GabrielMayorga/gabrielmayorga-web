@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { ComponentProps, ReactNode } from 'react'
 import { site } from '@/content/site'
 import { cn } from '@/lib/cn'
@@ -106,9 +105,11 @@ export function ButtonLink({
     )
   }
 
+  // Sitio de una sola página: los enlaces internos son anclas (#servicios).
+  // Un <a> simple basta; next/link añadiría precarga de rutas que no existen.
   return (
-    <Link href={href} className={classes} {...props}>
+    <a href={href} className={classes} {...props}>
       {content}
-    </Link>
+    </a>
   )
 }

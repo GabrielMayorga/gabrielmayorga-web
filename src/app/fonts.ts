@@ -6,10 +6,11 @@ import { Inter, JetBrains_Mono, Poppins } from 'next/font/google'
  * ajustadas (adjustFontFallback), así el texto no salta al cargar la fuente.
  */
 
-// Títulos. Poppins no es variable: solo cargamos los pesos que usa el sistema.
+// Títulos. Poppins no es variable: cada peso es un archivo más en la ruta crítica.
+// El sistema solo usa 600 (font-semibold) en títulos, así que solo se carga ese.
 export const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
+  weight: '600',
   display: 'swap',
   variable: '--font-poppins',
 })
