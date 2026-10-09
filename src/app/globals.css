@@ -61,10 +61,20 @@
 /* Vidrio esmerilado sólido: legible sobre cualquier fondo, con luz en el borde superior */
 @utility glass {
   background-color: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  /* Vía utilidades de Tailwind: Lightning CSS descarta la propiedad sin prefijo
+     cuando el valor lleva var(), y Chrome se quedaba sin desenfoque. */
+  @apply backdrop-blur-(--glass-blur) backdrop-saturate-(--glass-saturate);
   border: 1px solid var(--glass-border);
   box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+/* Barra de vidrio (navegación): mismo material, solo con borde inferior */
+@utility glass-bar {
+  background-color: var(--glass-bg);
+  /* Vía utilidades de Tailwind: Lightning CSS descarta la propiedad sin prefijo
+     cuando el valor lleva var(), y Chrome se quedaba sin desenfoque. */
+  @apply backdrop-blur-(--glass-blur) backdrop-saturate-(--glass-saturate);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 /* Contenedor de página: ancho máximo + margen lateral fluido */
