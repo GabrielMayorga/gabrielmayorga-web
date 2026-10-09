@@ -175,13 +175,13 @@ export default function DevPage() {
   if (process.env.NODE_ENV === 'production') notFound()
 
   return (
-    <main className="grid lg:grid-cols-2">
-      <div data-theme="light" className="bg-canvas px-6 py-16 text-fg sm:px-12">
+    <div className="grid lg:grid-cols-2">
+      <div data-theme="light" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
         <Showcase />
       </div>
-      <div data-theme="dark" className="bg-canvas px-6 py-16 text-fg sm:px-12">
+      <div data-theme="dark" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
         <Showcase />
       </div>
-    </main>
+    </div>
   )
 }

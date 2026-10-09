@@ -30,7 +30,7 @@ npm run format       # aplicar Prettier
 ### Particularidades de Next 16.4 que ya mordieron
 
 - Antes de usar una API de Next, leer su guía en `node_modules/next/dist/docs/` (ver AGENTS.md).
-- Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` en un Server Component **rompen el prerender**. El año del pie va en un Client Component mínimo.
+- Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` en un Server Component **rompen el prerender**, incluso en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
 - Tema sin parpadeo: script en línea en `<head>` que pone `data-theme` en `<html>` antes del primer pintado (guía oficial: `02-guides/preventing-flash-before-hydration.md`). `<html>` lleva `suppressHydrationWarning`.
 
 ## Estructura
@@ -43,7 +43,7 @@ src/
   components/
     ui/             piezas base: Button/ButtonLink, Card, Section, SectionLabel, Tag,
                     StatusBadge, Monogram, icons (BrandIcon + trazos propios)
-    layout/         navegación, pie, botón de tema
+    layout/         SiteHeader, SiteFooter, ThemeToggle, ThemeScript, CurrentYear
     sections/       una sección de la home por archivo (Hero, Services…)
   lib/              utilidades sin UI (whatsapp.ts, cn.ts)
 ```
@@ -57,7 +57,8 @@ src/
 - **Espaciado**: rejilla de 8 px → en Tailwind solo pasos pares (`2, 4, 6, 8, 10, 12…`). Impares solo para ajustes ópticos de 4 px justificados.
 - **Radios concéntricos**: radio interno = radio externo − padding. `rounded-xs 8 · sm 12 · md 16 · lg 24 · xl 32 · 2xl 40 · full`. `Card` ya aplica `rounded-xl p-6` / `sm:rounded-2xl sm:p-8`: lo redondeado dentro de una Card usa `rounded-xs`.
 - **Objetivo táctil** mínimo 44 px (`min-h-11`, o `var(--tap-min)`).
-- **Utilidades propias**: `glass`, `container-page`, `section-space`, `section-label`, `theme-transition`, `reveal`.
+- **Lightning CSS y `backdrop-filter`**: con `var()` en el valor descarta la propiedad sin prefijo (Chrome queda sin desenfoque). Usar las utilidades `backdrop-blur-(--x)` / `backdrop-saturate-(--x)` de Tailwind, como en `glass` y `glass-bar`.
+- **Utilidades propias**: `glass`, `glass-bar`, `container-page`, `section-space`, `section-label`, `theme-transition`, `reveal`.
 - **Vista `/dev`**: muestra el sistema en claro y oscuro lado a lado (`npm run dev` → `/dev`). En producción responde 404. Todo componente nuevo de `ui/` se agrega ahí.
 - **Forzar tema en un bloque**: `data-theme="dark"` en cualquier contenedor recalcula los tokens.
 - **Identidad**: monograma `{GM}` en mono. Las etiquetas de sección usan llaves: `{ servicios }` con `section-label`.
@@ -104,6 +105,8 @@ src/
 - Desviarse de este documento o del brief requiere consultarlo antes.
 
 ## Skills a usar
+
+- Subagents y skill del repo (`content-guardian`, `a11y-reviewer`, `add-project`) solo cargan si Claude Code se inicia dentro de este directorio.
 
 - `apple-design` y `emil-design-eng`: criterio visual y de interacción en cada componente.
 - `animate`: al construir cualquier animación. `/review-animations` al cerrar las fases 3 y 8.

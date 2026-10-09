@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { ComponentProps, ReactNode } from 'react'
+import { site } from '@/content/site'
 import { cn } from '@/lib/cn'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
@@ -100,7 +101,7 @@ export function ButtonLink({
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...props}>
         {content}
-        <span className="sr-only"> (se abre en otra pestaña)</span>
+        <span className="sr-only"> {site.ui.newTab}</span>
       </a>
     )
   }

@@ -37,7 +37,10 @@ export interface CourseGroup {
   courses: readonly Course[]
 }
 
+export type SocialNetwork = 'github' | 'linkedin' | 'youtube' | 'instagram'
+
 export interface SocialLink {
+  network: SocialNetwork
   label: string
   href: string
   /** Usuario visible, p. ej. "@gabriel_mayorga21". */

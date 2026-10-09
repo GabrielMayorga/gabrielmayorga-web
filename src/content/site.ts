@@ -48,18 +48,26 @@ export const site = {
   },
 
   social: [
-    { label: 'GitHub', href: 'https://github.com/GabrielMayorga', handle: 'GabrielMayorga' },
     {
+      network: 'github',
+      label: 'GitHub',
+      href: 'https://github.com/GabrielMayorga',
+      handle: 'GabrielMayorga',
+    },
+    {
+      network: 'linkedin',
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/gabriel-mf25',
       handle: 'gabriel-mf25',
     },
     {
+      network: 'youtube',
       label: 'YouTube',
       href: 'https://www.youtube.com/@gabrielmayorga5170',
       handle: '@gabrielmayorga5170',
     },
     {
+      network: 'instagram',
       label: 'Instagram',
       href: 'https://www.instagram.com/gabriel_mayorga21',
       handle: '@gabriel_mayorga21',
@@ -68,5 +76,26 @@ export const site = {
 
   platzi: {
     profile: 'https://platzi.com/p/gabrielmayorga1546646/',
+  },
+
+  /** Secciones enlazadas en la navegación (los id coinciden con cada <Section>). */
+  nav: [
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Proyectos', href: '#proyectos' },
+    { label: 'Cómo trabajo', href: '#proceso' },
+    { label: 'Sobre mí', href: '#sobre-mi' },
+  ],
+
+  /** Textos de interfaz (accesibilidad y controles). */
+  ui: {
+    skipToContent: 'Saltar al contenido',
+    homeLink: 'Gabriel Mayorga, ir al inicio',
+    navLabel: 'Principal',
+    whatsappShort: 'WhatsApp',
+    themeToDark: 'Activar tema oscuro',
+    themeToLight: 'Activar tema claro',
+    footerSocialLabel: 'Redes sociales',
+    rights: 'Gabriel Mayorga',
+    newTab: '(se abre en otra pestaña)',
   },
 } as const
