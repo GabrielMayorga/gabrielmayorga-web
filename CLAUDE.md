@@ -41,7 +41,8 @@ src/
   styles/tokens.css ÚNICA fuente de tokens (paleta, tipografía, radios, movimiento, @theme)
   content/          TODO el texto del sitio, tipado (site.ts, projects.ts, education.ts, types.ts)
   components/
-    ui/             piezas base reutilizables (Button, Card, SectionLabel…)
+    ui/             piezas base: Button/ButtonLink, Card, Section, SectionLabel, Tag,
+                    StatusBadge, Monogram, icons (BrandIcon + trazos propios)
     layout/         navegación, pie, botón de tema
     sections/       una sección de la home por archivo (Hero, Services…)
   lib/              utilidades sin UI (whatsapp.ts, cn.ts)
@@ -54,9 +55,11 @@ src/
 - **Contraste (AA verificado)**: texto en azul usa `accent-text` (no `accent`). Botón principal = `bg-accent-solid text-on-accent` (5.2:1). `#3B82F6` sobre la superficie oscura no llega a AA para texto (3.98:1).
 - **Texto**: `text-caption` (13), `text-small` (15), `text-body` (17→18), `text-lead` (19→22), `text-title-3/2/1`, `text-display` (44→88). Cada tamaño trae su interlineado y tracking: no sobrescribir `tracking-*` ni `leading-*` salvo razón.
 - **Espaciado**: rejilla de 8 px → en Tailwind solo pasos pares (`2, 4, 6, 8, 10, 12…`). Impares solo para ajustes ópticos de 4 px justificados.
-- **Radios concéntricos**: radio interno = radio externo − padding. `rounded-xs 8 · sm 12 · md 16 · lg 24 · xl 32 · full`.
+- **Radios concéntricos**: radio interno = radio externo − padding. `rounded-xs 8 · sm 12 · md 16 · lg 24 · xl 32 · 2xl 40 · full`. `Card` ya aplica `rounded-xl p-6` / `sm:rounded-2xl sm:p-8`: lo redondeado dentro de una Card usa `rounded-xs`.
 - **Objetivo táctil** mínimo 44 px (`min-h-11`, o `var(--tap-min)`).
-- **Utilidades propias**: `glass`, `container-page`, `section-space`, `section-label`, `theme-transition`.
+- **Utilidades propias**: `glass`, `container-page`, `section-space`, `section-label`, `theme-transition`, `reveal`.
+- **Vista `/dev`**: muestra el sistema en claro y oscuro lado a lado (`npm run dev` → `/dev`). En producción responde 404. Todo componente nuevo de `ui/` se agrega ahí.
+- **Forzar tema en un bloque**: `data-theme="dark"` en cualquier contenedor recalcula los tokens.
 - **Identidad**: monograma `{GM}` en mono. Las etiquetas de sección usan llaves: `{ servicios }` con `section-label`.
 - **Profundidad**: vidrio legible + borde de 1 px con luz + sombras suaves en capas (`shadow-sm/md/lg`). Nada de degradados estridentes ni sombras duras.
 
@@ -66,6 +69,8 @@ src/
 - Springs en Motion: críticamente amortiguados por defecto (`bounce: 0`). Rebote solo tras un gesto con inercia.
 - Solo `transform` y `opacity`. Nunca animar `width`, `height`, `top`, `left`.
 - **Una sola pieza líquida protagonista**: el fondo del hero. No añadir otra.
+- **Herramienta más barata que funcione**: hover, presión y cambios de estado con transición CSS; revelado al hacer scroll con la utilidad `reveal` (CSS scroll-driven, sin JS: el contenido nunca depende de un script para verse); Motion solo para springs, gestos, salidas y el hero.
+- Botones: `scale(0.97)` al presionar (ya incluido en `Button`). Nada de `transition: all`, nada de `scale(0)`, nunca `ease-in`.
 - **`prefers-reduced-motion` sin excepción**: en Motion, `MotionConfig reducedMotion="user"`; en CSS, todo desplazamiento con `motion-safe:`. Con movimiento reducido se usa un fundido de opacidad, no se elimina el feedback.
 
 ## Accesibilidad (criterio de aceptación)
