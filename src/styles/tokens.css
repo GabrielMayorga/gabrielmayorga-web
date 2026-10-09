@@ -9,7 +9,8 @@
  *
  * Cambiar la paleta = editar este archivo. Ningún componente usa hex directos.
  * El tema lo decide `color-scheme`: sistema por defecto, o forzado con
- * data-theme="light" | "dark" en <html> (el script anti-parpadeo lo pone).
+ * data-theme="light" | "dark" en <html> (el script anti-parpadeo lo pone)
+ * o en cualquier contenedor.
  */
 
 :root {
@@ -28,6 +29,28 @@
   --blue-700: #1d4ed8;
   --white: #ffffff;
 
+  /* Movimiento */
+  /* Curvas: --ease-fluid y --ease-out-soft viven en @theme (abajo) */
+  --duration-press: 120ms; /* respuesta táctil: debe sentirse instantánea */
+  --duration-fast: 300ms;
+  --duration-base: 450ms;
+  --duration-slow: 600ms;
+  --duration-theme: 300ms; /* cambio claro↔oscuro sin saltos de brillo */
+
+  /* Layout */
+  --content-max: 72rem; /* 1152px */
+  --gutter: clamp(1.5rem, 1rem + 2.5vw, 3rem); /* 24 → 48px */
+  --section-space: clamp(6rem, 4rem + 8vw, 10rem); /* 96 → 160px */
+  --nav-height: 4rem; /* 64px */
+  --tap-min: 2.75rem; /* 44px: objetivo táctil mínimo */
+}
+
+/*
+ * Semánticos y de componente. Se declaran también en [data-theme] para que
+ * cualquier bloque pueda forzar un tema (p. ej. la vista /dev muestra ambos).
+ */
+:root,
+[data-theme] {
   /* ── 2. Semánticos (claro, oscuro) ─────────────────────────────── */
   color-scheme: light dark;
 
@@ -73,34 +96,20 @@
   --focus-ring: var(--accent);
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
-
-  /* Movimiento */
-  /* Curvas: --ease-fluid y --ease-out-soft viven en @theme (abajo) */
-  --duration-press: 120ms; /* respuesta táctil: debe sentirse instantánea */
-  --duration-fast: 300ms;
-  --duration-base: 450ms;
-  --duration-slow: 600ms;
-  --duration-theme: 300ms; /* cambio claro↔oscuro sin saltos de brillo */
-
-  /* Layout */
-  --content-max: 72rem; /* 1152px */
-  --gutter: clamp(1.5rem, 1rem + 2.5vw, 3rem); /* 24 → 48px */
-  --section-space: clamp(6rem, 4rem + 8vw, 10rem); /* 96 → 160px */
-  --nav-height: 4rem; /* 64px */
-  --tap-min: 2.75rem; /* 44px: objetivo táctil mínimo */
 }
 
 /* Tema forzado por el usuario */
-:root[data-theme='light'] {
+[data-theme='light'] {
   color-scheme: light;
 }
-:root[data-theme='dark'] {
+[data-theme='dark'] {
   color-scheme: dark;
 }
 
 /* Accesibilidad: el vidrio se vuelve sólido si el usuario reduce transparencias */
 @media (prefers-reduced-transparency: reduce) {
-  :root {
+  :root,
+  [data-theme] {
     --glass-bg: var(--canvas);
     --glass-blur: 0px;
   }
@@ -108,7 +117,8 @@
 
 /* Accesibilidad: más contraste en bordes y texto secundario */
 @media (prefers-contrast: more) {
-  :root {
+  :root,
+  [data-theme] {
     --fg-muted: var(--fg);
     --hairline: light-dark(rgb(15 23 42 / 0.4), rgb(248 250 252 / 0.4));
     --hairline-strong: light-dark(rgb(15 23 42 / 0.6), rgb(248 250 252 / 0.6));
@@ -169,12 +179,14 @@
   --text-display--letter-spacing: -0.035em;
 
   /* Radios. Regla concéntrica: radio interno = radio externo − padding.
-     Ej.: tarjeta rounded-xl (32) con p-4 (16) → hijo rounded-md (16). */
+     Tarjeta: rounded-xl (32) + p-6 (24) en móvil, rounded-2xl (40) + p-8 (32) en
+     escritorio → en ambos casos el hijo usa rounded-xs (8). */
   --radius-xs: 0.5rem; /* 8 */
   --radius-sm: 0.75rem; /* 12 */
   --radius-md: 1rem; /* 16 */
   --radius-lg: 1.5rem; /* 24 */
   --radius-xl: 2rem; /* 32 */
+  --radius-2xl: 2.5rem; /* 40 */
   --radius-full: 9999px;
 
   --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1); /* curva principal, tipo spring */

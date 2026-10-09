@@ -3,6 +3,7 @@
 
 @layer base {
   html {
+    -webkit-tap-highlight-color: transparent;
     background-color: var(--canvas);
     color: var(--fg);
     -webkit-text-size-adjust: 100%;
@@ -96,5 +97,29 @@
       background-color var(--duration-theme) var(--ease-out-soft),
       border-color var(--duration-theme) var(--ease-out-soft),
       color var(--duration-theme) var(--ease-out-soft) !important;
+  }
+}
+
+/*
+ * Revelado al hacer scroll, 100 % CSS (scroll-driven animations).
+ * - Sin JavaScript: el contenido nunca depende de que cargue un script para verse.
+ * - Navegadores sin soporte o con movimiento reducido: el contenido aparece sin animar.
+ * - Lo que ya está en pantalla al cargar se ve completo (no afecta el LCP).
+ */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.98);
+  }
+}
+
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: reveal linear both;
+      animation-timing-function: var(--ease-out-soft);
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
   }
 }
