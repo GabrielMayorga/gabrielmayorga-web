@@ -25,6 +25,7 @@
   --blue-400: #60a5fa;
   --blue-500: #3b82f6;
   --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
   --white: #ffffff;
 
   /* ── 2. Semánticos (claro, oscuro) ─────────────────────────────── */
@@ -43,7 +44,7 @@
   --accent: light-dark(var(--blue-600), var(--blue-500)); /* marca: íconos, brillos, foco */
   --accent-text: light-dark(var(--blue-600), var(--blue-400)); /* enlaces y texto en azul */
   --accent-solid: var(--blue-600); /* fondo de botón principal (blanco encima: 5.2) */
-  --accent-solid-hover: light-dark(#1d4ed8, #3b76f0);
+  --accent-solid-hover: var(--blue-700); /* blanco encima: 6.7 */
   --on-accent: var(--white);
 
   /* Líneas */
