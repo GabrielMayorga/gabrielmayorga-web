@@ -78,6 +78,16 @@ export const site = {
     profile: 'https://platzi.com/p/gabrielmayorga1546646/',
   },
 
+  /** Primera pantalla. El h1 es la promesa en lenguaje del cliente. */
+  hero: {
+    eyebrow: 'Gabriel Mayorga · Ingeniero de Sistemas',
+    title: 'Tu tecnología funcionando. Tú, enfocado en tu negocio.',
+    subtitle:
+      'Reparo equipos y redes, construyo sitios web y automatizo tareas repetitivas. Para negocios en El Rama y en remoto, con cotización por escrito antes de empezar.',
+    primaryCta: 'Cuéntame qué necesitas',
+    secondaryCta: 'Ver servicios',
+  },
+
   /** Secciones enlazadas en la navegación (los id coinciden con cada <Section>). */
   nav: [
     { label: 'Servicios', href: '#servicios' },

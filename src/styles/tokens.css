@@ -92,6 +92,11 @@
   --elevation-md: 0 1px 2px var(--shadow-color), 0 8px 24px -8px var(--shadow-color);
   --elevation-lg: 0 2px 4px var(--shadow-color), 0 24px 48px -16px var(--shadow-color);
 
+  /* Fondo líquido del hero: luz azul de la marca, suave en claro y más profunda en oscuro */
+  --glow-1: light-dark(rgb(37 99 235 / 0.16), rgb(37 99 235 / 0.38));
+  --glow-2: light-dark(rgb(96 165 250 / 0.22), rgb(59 130 246 / 0.26));
+  --glow-3: light-dark(rgb(59 130 246 / 0.12), rgb(96 165 250 / 0.16));
+
   /* Foco: visible siempre, mismo color de marca */
   --focus-ring: var(--accent);
   --focus-ring-width: 2px;
