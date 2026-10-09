@@ -30,7 +30,7 @@ npm run format       # aplicar Prettier
 ### Particularidades de Next 16.4 que ya mordieron
 
 - Antes de usar una API de Next, leer su guía en `node_modules/next/dist/docs/` (ver AGENTS.md).
-- Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` en un Server Component **rompen el prerender**, incluso en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
+- Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` **rompen el prerender**, tanto en Server como en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
 - Tema sin parpadeo: script en línea en `<head>` que pone `data-theme` en `<html>` antes del primer pintado (guía oficial: `02-guides/preventing-flash-before-hydration.md`). `<html>` lleva `suppressHydrationWarning`.
 
 ## Estructura
