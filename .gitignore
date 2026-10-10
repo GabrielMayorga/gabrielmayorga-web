@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Perfiles temporales de Chrome que crea Lighthouse desde WSL
+/C:*
