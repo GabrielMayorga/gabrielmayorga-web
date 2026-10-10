@@ -74,11 +74,14 @@ interface LinkProps extends SharedProps {
   href: string
   /** Abre en otra pestaña y lo anuncia a lectores de pantalla. */
   external?: boolean
+  /** Texto solo para lectores de pantalla tras el visible, p. ej. a dónde lleva. */
+  srSuffix?: string
 }
 
 export function ButtonLink({
   href,
   external = false,
+  srSuffix,
   variant,
   size,
   icon,
@@ -91,6 +94,7 @@ export function ButtonLink({
     <>
       {icon && <span className="-ml-1 inline-flex size-5">{icon}</span>}
       {children}
+      {srSuffix && <span className="sr-only"> {srSuffix}</span>}
       {trailingIcon && <TrailingIcon>{trailingIcon}</TrailingIcon>}
     </>
   )

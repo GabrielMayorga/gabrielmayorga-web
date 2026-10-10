@@ -46,3 +46,25 @@ export interface SocialLink {
   /** Usuario visible, p. ej. "@gabriel_mayorga21". */
   handle: string
 }
+
+export type ServiceIcon = 'support' | 'web' | 'automation'
+
+export interface Service {
+  /** Ancla estable, en minúsculas y con guiones. */
+  slug: string
+  icon: ServiceIcon
+  /** Nombre corto del servicio: "Soporte técnico". */
+  name: string
+  /** El problema, en palabras del cliente. Es el título de la tarjeta. */
+  problem: string
+  /** Qué hago y qué obtiene el cliente. */
+  description: string
+  /** Ejemplos concretos de lo que incluye. */
+  includes: readonly string[]
+  /** Opcional. Herramientas, para el visitante técnico. */
+  stack?: readonly string[]
+  /** Texto del botón de la tarjeta. */
+  cta: string
+  /** Mensaje predefinido de WhatsApp para este servicio. */
+  whatsappMessage: string
+}

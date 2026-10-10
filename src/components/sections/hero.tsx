@@ -36,6 +36,7 @@ export function Hero() {
           <ButtonLink
             href={whatsappHref()}
             external
+            srSuffix={site.ui.viaWhatsapp}
             size="lg"
             icon={<BrandIcon brand="whatsapp" />}
             className="w-full sm:w-auto"

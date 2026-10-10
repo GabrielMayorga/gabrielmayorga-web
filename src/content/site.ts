@@ -107,5 +107,6 @@ export const site = {
     footerSocialLabel: 'Redes sociales',
     rights: 'Gabriel Mayorga',
     newTab: '(se abre en otra pestaña)',
+    viaWhatsapp: 'por WhatsApp',
   },
 } as const

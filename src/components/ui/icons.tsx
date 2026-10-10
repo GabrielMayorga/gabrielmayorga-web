@@ -69,6 +69,26 @@ export const CheckIcon = (props: IconProps) => (
   </StrokeIcon>
 )
 
+/* Servicios */
+export const WrenchIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+  </StrokeIcon>
+)
+
+export const BrowserIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="M3 9h18M7 6.5h.01M10 6.5h.01" />
+  </StrokeIcon>
+)
+
+export const BoltIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+  </StrokeIcon>
+)
+
 /* Marcas: trazados oficiales de simple-icons (CC0). LinkedIn ya no está en el
    paquete por pedido de la marca, así que se incluye su glifo aquí. */
 const LINKEDIN_PATH =

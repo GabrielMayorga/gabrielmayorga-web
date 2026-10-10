@@ -7,11 +7,14 @@ import {
   ArrowDownIcon,
   ArrowRightIcon,
   ArrowUpRightIcon,
+  BoltIcon,
   BrandIcon,
+  BrowserIcon,
   CheckIcon,
   MailIcon,
   MoonIcon,
   SunIcon,
+  WrenchIcon,
 } from '@/components/ui/icons'
 import { Monogram } from '@/components/ui/monogram'
 import { SectionLabel } from '@/components/ui/section-label'
@@ -151,6 +154,9 @@ function Showcase() {
           <SunIcon />
           <MoonIcon />
           <CheckIcon />
+          <WrenchIcon />
+          <BrowserIcon />
+          <BoltIcon />
           <BrandIcon brand="whatsapp" />
           <BrandIcon brand="github" />
           <BrandIcon brand="linkedin" />
