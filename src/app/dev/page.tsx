@@ -16,8 +16,11 @@ import {
   SunIcon,
   WrenchIcon,
 } from '@/components/ui/icons'
+import { Projects } from '@/components/sections/projects'
 import { Monogram } from '@/components/ui/monogram'
 import { SectionLabel } from '@/components/ui/section-label'
+import { visibleProjects } from '@/content/projects'
+import { worstCaseProjects } from './project-fixtures'
 
 /*
  * Vista de desarrollo del sistema de diseño. Solo existe con `npm run dev`:
@@ -181,13 +184,25 @@ export default function DevPage() {
   if (process.env.NODE_ENV === 'production') notFound()
 
   return (
-    <div className="grid lg:grid-cols-2">
-      <div data-theme="light" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
-        <Showcase />
+    <>
+      <div className="grid lg:grid-cols-2">
+        <div data-theme="light" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
+          <Showcase />
+        </div>
+        <div data-theme="dark" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
+          <Showcase />
+        </div>
       </div>
-      <div data-theme="dark" className="bg-canvas px-6 pt-28 pb-16 text-fg sm:px-12">
-        <Showcase />
+
+      {/* Proyectos con 0, 1 (datos reales) y 6 (peor caso), en claro y oscuro */}
+      <Projects id="dev-proyectos-0" projects={[]} />
+      <Projects id="dev-proyectos-1" projects={visibleProjects} />
+      <div data-theme="light" className="bg-canvas text-fg">
+        <Projects id="dev-proyectos-6-claro" projects={worstCaseProjects} />
       </div>
-    </div>
+      <div data-theme="dark" className="bg-canvas text-fg">
+        <Projects id="dev-proyectos-6-oscuro" projects={worstCaseProjects} />
+      </div>
+    </>
   )
 }
