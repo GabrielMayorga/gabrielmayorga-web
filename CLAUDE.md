@@ -130,6 +130,6 @@ src/
 - Dominio propio (hoy `NEXT_PUBLIC_SITE_URL`).
 - Foto profesional para "Sobre mí".
 - Marca Nuvix: se conectará después como respaldo del negocio.
-- ¿El diagnóstico es gratis o pagado? (afecta "Cómo trabajo").
+- Garantía o soporte después de entregar: qué cubre y por cuánto tiempo (afecta "Cómo trabajo").
 - ¿Se pueden nombrar las empresas donde trabajó? (afecta "Sobre mí").
 - Casa de las Pacas: autorización del dueño y estado real.

@@ -8,7 +8,7 @@ export const servicesSection = {
   label: 'servicios',
   title: 'Cuéntame qué te está frenando y te digo cómo lo resolvería.',
   intro:
-    'Antes de empezar te envío por escrito qué haría y cuánto costaría. Así decides con toda la información.',
+    'Antes de revisar te digo cuánto cuesta el diagnóstico, y antes de empezar te envío por escrito qué haría y cuánto costaría. Así decides con toda la información.',
   fallback: '¿Tu caso no aparece aquí? Escríbeme igual y lo vemos.',
   fallbackCta: 'Cuéntamelo por WhatsApp',
 } as const

@@ -70,3 +70,10 @@ export interface Service {
   /** Mensaje predefinido de WhatsApp para este servicio. */
   whatsappMessage: string
 }
+
+export interface ProcessStep {
+  title: string
+  description: string
+  /** Opcional. Condición importante del paso (costos, pagos). */
+  note?: string
+}
