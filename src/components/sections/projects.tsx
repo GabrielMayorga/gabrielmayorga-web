@@ -3,7 +3,7 @@ import type { Project } from '@/content/types'
 import { StatusBadge, Tag } from '@/components/ui/badge'
 import { ButtonLink } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ArrowUpRightIcon, BrandIcon } from '@/components/ui/icons'
+import { ArrowRightIcon, ArrowUpRightIcon, BrandIcon } from '@/components/ui/icons'
 import { Section } from '@/components/ui/section'
 import { cn } from '@/lib/cn'
 import { whatsappHref } from '@/lib/whatsapp'
@@ -85,8 +85,13 @@ function ProjectCard({ project, featured }: { project: Project; featured: boolea
           </ul>
         )}
 
-        {(project.href || project.repo) && (
+        {(project.demo || project.href || project.repo) && (
           <div className={cn('mt-8 flex flex-wrap gap-4', featured && 'lg:mt-auto lg:pt-8')}>
+            {project.demo && (
+              <ButtonLink href={project.demo} srSuffix={context} trailingIcon={<ArrowRightIcon />}>
+                {projectsSection.tryDemoCta}
+              </ButtonLink>
+            )}
             {project.href && (
               <ButtonLink
                 href={project.href}

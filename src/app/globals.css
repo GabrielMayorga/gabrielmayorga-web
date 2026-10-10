@@ -216,3 +216,96 @@
     animation: none;
   }
 }
+
+/*
+ * Diálogo modal (<dialog> nativo: foco atrapado, Escape y capa superior gratis).
+ * Móvil: hoja que sube desde abajo. Escritorio: tarjeta centrada.
+ * Entrada y salida con transiciones CSS (@starting-style + allow-discrete).
+ * Movimiento reducido: solo fundido.
+ */
+.sheet {
+  margin: auto auto 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 92dvh;
+  border: 1px solid var(--hairline);
+  border-bottom: 0;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background: var(--canvas);
+  color: var(--fg);
+  box-shadow: var(--elevation-lg);
+  padding: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity var(--duration-fast) var(--ease-fluid),
+    transform var(--duration-base) var(--ease-fluid),
+    overlay var(--duration-base) allow-discrete,
+    display var(--duration-base) allow-discrete;
+}
+
+.sheet[open] {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  .sheet[open] {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.sheet::backdrop {
+  background: var(--backdrop);
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) var(--ease-out-soft),
+    overlay var(--duration-fast) allow-discrete,
+    display var(--duration-fast) allow-discrete;
+}
+
+.sheet[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .sheet[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 40rem) {
+  .sheet {
+    margin: auto;
+    max-width: 34rem;
+    max-height: 88dvh;
+    border-bottom: 1px solid var(--hairline);
+    border-radius: var(--radius-2xl);
+    transform: translateY(1rem) scale(0.98);
+  }
+
+  @starting-style {
+    .sheet[open] {
+      transform: translateY(1rem) scale(0.98);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet,
+  .sheet[open] {
+    transform: none;
+  }
+
+  @starting-style {
+    .sheet[open] {
+      transform: none;
+    }
+  }
+}
+
+/* Con un diálogo abierto, la página de fondo no se desplaza */
+html:has(.sheet[open]) {
+  overflow: hidden;
+}

@@ -5,14 +5,17 @@ import { Button, ButtonLink } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import {
   ArrowDownIcon,
+  ArrowLeftIcon,
   ArrowRightIcon,
   ArrowUpRightIcon,
   BoltIcon,
   BrandIcon,
   BrowserIcon,
   CheckIcon,
+  CloseIcon,
   MailIcon,
   MoonIcon,
+  PlusIcon,
   SunIcon,
   WrenchIcon,
 } from '@/components/ui/icons'
@@ -157,6 +160,9 @@ function Showcase() {
           <SunIcon />
           <MoonIcon />
           <CheckIcon />
+          <CloseIcon />
+          <PlusIcon />
+          <ArrowLeftIcon />
           <WrenchIcon />
           <BrowserIcon />
           <BoltIcon />

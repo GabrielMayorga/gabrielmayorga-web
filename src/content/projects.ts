@@ -11,6 +11,7 @@ export const projectsSection = {
   resultLabel: 'Resultado',
   stackLabel: 'Tecnologías',
   demoCta: 'Ver demo',
+  tryDemoCta: 'Probar la agenda',
   repoCta: 'Ver código',
   /** Completa el nombre accesible del enlace: "Ver demo de DentalSystem WebApp". */
   linkContext: (projectName: string) => `de ${projectName}`,
@@ -38,14 +39,14 @@ export const projects = [
     name: 'DentalSystem WebApp',
     type: 'Sistema de gestión · Tesis',
     status: 'in-development',
-    summary: 'Sistema de agenda, expedientes y reportes diseñado para la clínica Dental Day.',
-    // Clínica real; Gabriel autorizó mencionarla (9 de oct. de 2026).
+    summary: 'Sistema de agenda, expedientes y reportes para una clínica dental.',
+    // Clínica real; por decisión de Gabriel no se nombra (la demo usa una ficticia).
     problem:
       'La clínica manejaba sus citas en papel y mensajería: citas duplicadas con el mismo odontólogo, confirmaciones manuales que consumían tiempo de recepción y horarios vacíos por inasistencias que no se podían reasignar.',
     solution:
       'Una aplicación web que permite a recepción agendar en un calendario sin choques de horario, a los odontólogos llevar el expediente clínico de cada paciente y a la administración consultar indicadores del período que elija. Cada usuario ve solo lo que su rol le permite.',
     stack: ['React', 'Vite', 'Material UI', 'FullCalendar', 'Node.js', 'Express', 'PostgreSQL'],
-    href: 'https://dental-day-web.vercel.app',
+    demo: '/proyectos/dentalsystem',
     repo: 'https://github.com/GabrielMayorga/dental-day-web',
   },
   {

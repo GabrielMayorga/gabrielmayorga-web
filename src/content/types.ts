@@ -19,8 +19,10 @@ export interface Project {
   /** Opcional. Solo resultados verificables: nada de cifras inventadas. */
   result?: string
   stack: readonly string[]
-  /** Enlace público al proyecto (demo o sitio). */
+  /** Enlace público al proyecto (sitio externo). */
   href?: string
+  /** Ruta interna a una demo interactiva dentro de este sitio. */
+  demo?: string
   /** Repositorio público. */
   repo?: string
   /** false lo oculta sin borrarlo. Por defecto se muestra. */

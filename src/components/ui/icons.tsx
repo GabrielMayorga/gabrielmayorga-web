@@ -69,6 +69,24 @@ export const CheckIcon = (props: IconProps) => (
   </StrokeIcon>
 )
 
+export const CloseIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <path d="M6 6l12 12M18 6 6 18" />
+  </StrokeIcon>
+)
+
+export const PlusIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <path d="M12 5v14M5 12h14" />
+  </StrokeIcon>
+)
+
+export const ArrowLeftIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <path d="M19 12H5M11 18l-6-6 6-6" />
+  </StrokeIcon>
+)
+
 /* Servicios */
 export const WrenchIcon = (props: IconProps) => (
   <StrokeIcon {...props}>

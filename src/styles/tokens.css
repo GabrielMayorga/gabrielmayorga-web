@@ -28,6 +28,13 @@
   --blue-600: #2563eb;
   --blue-700: #1d4ed8;
   --white: #ffffff;
+  /* Estados (solo demo de agenda y mensajes de error) */
+  --green-400: #4ade80;
+  --green-600: #16a34a;
+  --amber-400: #fbbf24;
+  --amber-600: #d97706;
+  --red-400: #f87171;
+  --red-600: #dc2626;
 
   /* Movimiento */
   /* Curvas: --ease-fluid y --ease-out-soft viven en @theme (abajo) */
@@ -74,7 +81,22 @@
   --hairline: light-dark(rgb(15 23 42 / 0.08), rgb(148 163 184 / 0.14));
   --hairline-strong: light-dark(rgb(15 23 42 / 0.14), rgb(148 163 184 / 0.24));
 
+  /* Error en formularios: texto AA en ambos temas (4.8 / 6.4) */
+  --danger-text: light-dark(var(--red-600), var(--red-400));
+
   /* ── 3. Componente ─────────────────────────────────────────────── */
+
+  /* Estados de cita (demo de agenda). Solo bordes y puntos: no son color de texto.
+     Contraste no textual ≥ 3:1 sobre canvas en ambos temas. */
+  --status-scheduled: var(--accent);
+  --status-confirmed: light-dark(var(--green-600), var(--green-400));
+  --status-in-progress: light-dark(var(--amber-600), var(--amber-400));
+  --status-completed: var(--fg-muted);
+  --status-cancelled: light-dark(var(--red-600), var(--red-400));
+  --status-no-show: light-dark(var(--red-600), var(--red-400));
+
+  /* Fondo detrás de un diálogo modal */
+  --backdrop: light-dark(rgb(15 23 42 / 0.32), rgb(2 6 23 / 0.6));
 
   /* Vidrio esmerilado legible: opaco suficiente para que el texto nunca pierda contraste */
   --glass-bg: light-dark(rgb(255 255 255 / 0.72), rgb(15 23 42 / 0.68));
@@ -212,6 +234,13 @@
   --color-on-accent: var(--on-accent);
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
+  --color-danger-text: var(--danger-text);
+  --color-status-scheduled: var(--status-scheduled);
+  --color-status-confirmed: var(--status-confirmed);
+  --color-status-in-progress: var(--status-in-progress);
+  --color-status-completed: var(--status-completed);
+  --color-status-cancelled: var(--status-cancelled);
+  --color-status-no-show: var(--status-no-show);
   --color-transparent: transparent;
   --color-current: currentColor;
 

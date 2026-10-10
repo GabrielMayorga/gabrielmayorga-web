@@ -109,8 +109,8 @@ export function ButtonLink({
     )
   }
 
-  // Sitio de una sola página: los enlaces internos son anclas (#servicios).
-  // Un <a> simple basta; next/link añadiría precarga de rutas que no existen.
+  // Enlaces internos: anclas (/#servicios) o rutas de demo. Un <a> simple basta;
+  // next/link se reserva para la navegación entre páginas que conviene precargar.
   return (
     <a href={href} className={classes} {...props}>
       {content}

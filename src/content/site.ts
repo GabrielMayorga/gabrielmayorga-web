@@ -90,10 +90,10 @@ export const site = {
 
   /** Secciones enlazadas en la navegación (los id coinciden con cada <Section>). */
   nav: [
-    { label: 'Servicios', href: '#servicios' },
-    { label: 'Proyectos', href: '#proyectos' },
-    { label: 'Cómo trabajo', href: '#proceso' },
-    { label: 'Sobre mí', href: '#sobre-mi' },
+    { label: 'Servicios', href: '/#servicios' },
+    { label: 'Proyectos', href: '/#proyectos' },
+    { label: 'Cómo trabajo', href: '/#proceso' },
+    { label: 'Sobre mí', href: '/#sobre-mi' },
   ],
 
   /** Textos de interfaz (accesibilidad y controles). */

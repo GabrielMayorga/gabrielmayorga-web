@@ -31,7 +31,8 @@ npm run preview      # build de producción servido a la red local (probar en el
 ### Particularidades de Next 16.4 que ya mordieron
 
 - No correr `npm run build` con `npm run dev` encendido: Turbopack se queda con CSS viejo. Si pasa, detener el servidor y borrar `.next`.
-- Sitio de una sola página: enlaces internos con `<a href="#seccion">`, **no** `next/link` (precarga rutas inexistentes y suma trabajo al cargar).
+- Home de una sola página + demos en `/proyectos/<slug>`. Secciones: anclas `<a href="/#seccion">` (funcionan desde cualquier página). Entre páginas: `next/link` (la marca del encabezado con `prefetch={false}`).
+- Demos interactivas en `src/components/demo/`, con datos ficticios en `src/content/demo-*.ts` y reglas puras en `src/lib/`. Diálogos con `<dialog>` nativo (`Sheet`).
 
 - Antes de usar una API de Next, leer su guía en `node_modules/next/dist/docs/` (ver AGENTS.md).
 - Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` **rompen el prerender**, tanto en Server como en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
