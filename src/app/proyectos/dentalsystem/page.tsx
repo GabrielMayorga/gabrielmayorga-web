@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { demoAgenda } from '@/content/demo-agenda'
 import { projects } from '@/content/projects'
+import { site } from '@/content/site'
 import { AgendaDemo } from '@/components/demo/agenda-demo'
 import { ButtonLink } from '@/components/ui/button'
 import { ArrowLeftIcon, BrandIcon } from '@/components/ui/icons'
@@ -11,6 +12,14 @@ import { whatsappHref } from '@/lib/whatsapp'
 export const metadata: Metadata = {
   title: demoAgenda.meta.title,
   description: demoAgenda.meta.description,
+  alternates: { canonical: '/proyectos/dentalsystem' },
+  openGraph: {
+    title: demoAgenda.meta.title,
+    description: demoAgenda.meta.description,
+    url: '/proyectos/dentalsystem',
+    // Al definir openGraph en la página no se hereda la imagen de la raíz
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: site.share.imageAlt }],
+  },
 }
 
 const repo = projects.find((p) => p.slug === 'dentalsystem-webapp')?.repo

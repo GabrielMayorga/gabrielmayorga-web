@@ -107,6 +107,7 @@ src/
 - Lighthouse en local varía mucho (CPU compartida con Windows/WSL; TTFB local ~460 ms). Correr 3–5 veces sobre `next build` + `next start` y usar la mediana; mirar `benchmarkIndex` de cada corrida.
 - El LCP simulado de Lighthouse incluye el JS async de React aunque no bloquee el pintado; revisar el LCP observado. El criterio ≥ 95 se valida en producción (PageSpeed Insights sobre Vercel).
 - El fondo líquido del hero fue medido: no cuesta nada en el hilo principal. No cambiarlo a JS.
+- Lighthouse por CLI desde WSL crea perfiles de Chrome con rutas de Windows (`C:\Users\…\lighthouse.*`) dentro del directorio actual: correrlo desde otra carpeta y borrarlos, o rompen el build.
 
 ## Flujo de trabajo
 
@@ -127,7 +128,8 @@ src/
 
 ## TODO abiertos
 
-- Dominio propio (hoy `NEXT_PUBLIC_SITE_URL`).
+- Dominio propio: poner `NEXT_PUBLIC_SITE_URL` en Vercel (sin ella se usa `VERCEL_PROJECT_PRODUCTION_URL`).
+- Alcance del servicio remoto (afecta `areaServed` en `src/lib/schema.ts`).
 - Foto profesional para "Sobre mí".
 - Marca Nuvix: se conectará después como respaldo del negocio.
 - Garantía o soporte después de entregar: qué cubre y por cuánto tiempo (afecta "Cómo trabajo").

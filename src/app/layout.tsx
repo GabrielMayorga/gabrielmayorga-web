@@ -3,12 +3,31 @@ import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
 import { ThemeScript } from '@/components/layout/theme-script'
 import { site } from '@/content/site'
+import { siteJsonLd, toJsonLdScript } from '@/lib/schema'
 import { inter, jetbrainsMono, poppins } from './fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: site.title,
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: site.share.locale,
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.title,
+    description: site.description,
+  },
+  formatDetection: { telephone: false },
 }
 
 export const viewport: Viewport = {
@@ -29,6 +48,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <head>
         <ThemeScript />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLdScript(siteJsonLd()) }}
+        />
       </head>
       <body className="flex min-h-dvh flex-col">
         <a

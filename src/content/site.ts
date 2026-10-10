@@ -19,8 +19,13 @@ export const site = {
   title: 'Gabriel Mayorga · Soporte técnico, sitios web y automatización',
   description:
     'Reparo, construyo y equipo la tecnología de tu negocio: soporte técnico, sitios web a la medida y automatización de procesos. En El Rama y en remoto.',
-  // TODO(dominio): reemplazar cuando exista el dominio propio. Mientras, la URL de Vercel.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+  // TODO(dominio): poner NEXT_PUBLIC_SITE_URL cuando exista el dominio propio.
+  // Mientras, en Vercel se usa su dominio de producción (variable que Vercel define sola).
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000'),
   locale: 'es',
 
   location: {
@@ -34,6 +39,7 @@ export const site = {
 
   brand: {
     monogram: '{GM}',
+    initials: 'GM',
     footerTagline: 'IA · AUTOMATIZACIÓN · DESARROLLO',
     // TODO(nuvix): la marca Nuvix se conectará más adelante como respaldo del negocio.
   },
@@ -76,6 +82,13 @@ export const site = {
 
   platzi: {
     profile: 'https://platzi.com/p/gabrielmayorga1546646/',
+  },
+
+  /** Vista previa al compartir el enlace (WhatsApp, Facebook, LinkedIn). */
+  share: {
+    imageAlt:
+      'Gabriel Mayorga, ingeniero de sistemas: soporte técnico, sitios web y automatización en El Rama y en remoto.',
+    locale: 'es_NI',
   },
 
   /** Primera pantalla. El h1 es la promesa en lenguaje del cliente. */
