@@ -1,3 +1,5 @@
+import { About } from '@/components/sections/about'
+import { Contact } from '@/components/sections/contact'
 import { Hero } from '@/components/sections/hero'
 import { Process } from '@/components/sections/process'
 import { Projects } from '@/components/sections/projects'
@@ -10,6 +12,8 @@ export default function Home() {
       <Services />
       <Projects />
       <Process />
+      <About />
+      <Contact />
     </>
   )
 }

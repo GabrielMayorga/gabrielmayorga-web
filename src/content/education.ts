@@ -21,7 +21,7 @@ export const courseGroups = [
     courses: [{ name: 'Curso de HTML', href: diploma('12341-html') }],
   },
   {
-    area: 'Negocio y atención al cliente',
+    area: 'Negocio y marketing digital',
     courses: [
       { name: 'Curso de WhatsApp Business', href: diploma('8025-whatsapp-for-business') },
       { name: 'Curso de Marketing Digital', href: diploma('10994-introduccion-marketing') },
