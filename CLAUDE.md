@@ -131,5 +131,4 @@ src/
 - Marca Nuvix: se conectará después como respaldo del negocio.
 - ¿El diagnóstico es gratis o pagado? (afecta "Cómo trabajo").
 - ¿Se pueden nombrar las empresas donde trabajó? (afecta "Sobre mí").
-- DentalSystem WebApp: ¿mostrar la demo (requiere inicio de sesión)?
 - Casa de las Pacas: autorización del dueño y estado real.

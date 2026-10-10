@@ -38,16 +38,14 @@ export const projects = [
     name: 'DentalSystem WebApp',
     type: 'Sistema de gestión · Tesis',
     status: 'in-development',
-    summary: 'Agenda, expedientes y reportes para clínicas dentales, en un solo lugar.',
-    // TODO(confirmar): ¿la tesis se basó en una clínica real? ¿se puede mencionar?
+    summary: 'Sistema de agenda, expedientes y reportes diseñado para la clínica Dental Day.',
+    // Clínica real; Gabriel autorizó mencionarla (9 de oct. de 2026).
     problem:
-      'En muchas clínicas dentales las citas se llevan en papel y por mensajería: se duplican horarios con el mismo odontólogo, confirmar cada cita le quita tiempo a recepción y los espacios que deja una inasistencia no se aprovechan.',
+      'La clínica manejaba sus citas en papel y mensajería: citas duplicadas con el mismo odontólogo, confirmaciones manuales que consumían tiempo de recepción y horarios vacíos por inasistencias que no se podían reasignar.',
     solution:
       'Una aplicación web que permite a recepción agendar en un calendario sin choques de horario, a los odontólogos llevar el expediente clínico de cada paciente y a la administración consultar indicadores del período que elija. Cada usuario ve solo lo que su rol le permite.',
     stack: ['React', 'Vite', 'Material UI', 'FullCalendar', 'Node.js', 'Express', 'PostgreSQL'],
-    // TODO(confirmar): ¿mostrar la demo? Requiere inicio de sesión. Oculta hasta confirmar.
-    // href: 'https://dental-day-web.vercel.app',
-    // TODO(confirmar): ¿"Dental Day" identifica a una clínica real? ¿el repo no tiene datos reales?
+    href: 'https://dental-day-web.vercel.app',
     repo: 'https://github.com/GabrielMayorga/dental-day-web',
   },
   {

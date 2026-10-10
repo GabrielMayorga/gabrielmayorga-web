@@ -13,7 +13,6 @@ export const servicesSection = {
   fallbackCta: 'Cuéntamelo por WhatsApp',
 } as const
 
-// TODO(confirmar): revisar con Gabriel los ejemplos de cada `includes` y el stack.
 export const services = [
   {
     slug: 'soporte-tecnico',
@@ -26,7 +25,7 @@ export const services = [
       'Computadoras lentas, con virus o que no encienden',
       'Redes y Wi-Fi que se caen',
       'Impresoras y equipos de oficina',
-      'Consejo antes de comprar equipo nuevo', // TODO(confirmar): ¿lo ofrece como servicio?
+      'Consejo antes de comprar equipo nuevo',
     ],
     cta: 'Pedir soporte',
     whatsappMessage: 'Hola Gabriel, necesito soporte técnico con…',
@@ -56,11 +55,11 @@ export const services = [
     description:
       'Identifico las tareas que se repiten en tu negocio y las automatizo para que dejes de hacerlas a mano y dediques ese tiempo a tus clientes.',
     includes: [
-      'Respuestas y catálogo en WhatsApp Business', // TODO(confirmar): ¿lo ofrece como servicio?
+      'Respuestas y catálogo en WhatsApp Business',
       'Reportes que se arman sin copiar y pegar',
-      'Textos y respuestas que hoy escribes desde cero cada vez', // TODO(confirmar): ¿ofrece IA?
+      'Textos y respuestas que hoy escribes desde cero, preparados con IA',
     ],
-    stack: ['WhatsApp Business'], // TODO(confirmar): ¿agregar IA (Claude)?
+    stack: ['WhatsApp Business'],
     cta: 'Automatizar una tarea',
     whatsappMessage: 'Hola Gabriel, quiero automatizar una tarea de mi negocio…',
   },
