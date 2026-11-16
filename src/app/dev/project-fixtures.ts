@@ -46,7 +46,7 @@ export const worstCaseProjects: readonly Project[] = [
   },
   {
     slug: 'bot-citas',
-    name: 'AsistenteDeCitasWhatsAppClínicaVeterinaria',
+    name: 'AsistenteDeCitasWhatsAppClínicaDentalFicticia',
     type: 'Automatización',
     status: 'in-development',
     summary: 'Confirma citas por WhatsApp sin que recepción escriba cada mensaje. 🐾',

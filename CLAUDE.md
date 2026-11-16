@@ -93,7 +93,7 @@ src/
 - Escribir desde el problema del cliente: "Procesos manuales que te consumen horas cada semana", no "automatización con IA".
 - **Prohibido inventar**: testimonios, cifras, clientes, logos, años de experiencia o resultados. Lo que falte se marca `// TODO(...)` y se pregunta a Gabriel.
 - **Nunca incluir**: GoPartner, cuentas de streaming ni ningún canal de comisiones.
-- Casa de las Pacas: `visible: false` hasta que el dueño autorice. Siempre lenguaje de ejecución ("lideré", "implementé", "gestioné"), nunca de propiedad; sin cifras de ventas, precios ni datos internos.
+- Negocios externos: ningún empleador ni cliente cuyo negocio Gabriel no construyó aparece en el sitio ni en el código. Solo proyectos propios.
 - Proyectos: agregar uno = agregar un objeto a `src/content/projects.ts` (ver skill `add-project`). Campo opcional vacío = no se renderiza. La sección debe verse bien con 0, 1 y 6 proyectos.
 
 ## Calidad (criterios de aceptación)
@@ -134,4 +134,3 @@ src/
 - Marca Nuvix: se conectará después como respaldo del negocio.
 - Garantía o soporte después de entregar: qué cubre y por cuánto tiempo (afecta "Cómo trabajo").
 - ¿Se pueden nombrar las empresas donde trabajó? (afecta "Sobre mí").
-- Casa de las Pacas: autorización del dueño y estado real.

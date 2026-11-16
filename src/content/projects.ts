@@ -49,21 +49,6 @@ export const projects = [
     demo: '/proyectos/dentalsystem',
     repo: 'https://github.com/GabrielMayorga/dental-day-web',
   },
-  {
-    slug: 'casa-de-las-pacas',
-    name: 'Casa de las Pacas',
-    type: 'Caso de estudio · Operación digital',
-    status: 'completed', // TODO(confirmar): ¿la operación sigue activa?
-    // TODO(autorización): no publicar hasta que el dueño autorice mostrarlo.
-    // Redacción siempre en lenguaje de ejecución; sin cifras, precios ni datos internos.
-    visible: false,
-    summary: 'Lideré la operación digital de una tienda: catálogo, WhatsApp y contenido.',
-    // TODO(autorización): redactar con Gabriel cuando se autorice.
-    problem: '',
-    solution:
-      'Implementé el catálogo digital, gestioné la atención por WhatsApp Business y coordiné el contenido promocional.',
-    stack: ['WhatsApp Business'],
-  },
 ] as const satisfies readonly Project[]
 
 export const visibleProjects: readonly Project[] = projects.filter(

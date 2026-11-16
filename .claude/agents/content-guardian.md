@@ -12,7 +12,7 @@ Marca cada incumplimiento con archivo:línea, la regla que rompe y una propuesta
 2. **Canales prohibidos**: GoPartner, cuentas de streaming, afiliados o cualquier canal de comisiones.
 3. **Jerga**: modismos nicaragüenses o regionales. El español debe ser neutro y natural.
 4. **Lenguaje de tecnología en vez de problema**: titulares o descripciones de servicios que hablen de herramientas ("automatización con IA") en lugar del dolor del cliente ("procesos manuales que te consumen horas").
-5. **Casa de las Pacas**: si `visible` no es `false` sin autorización documentada; lenguaje de propiedad ("mi tienda", "mi negocio"); cifras de ventas, precios o datos internos.
+5. **Negocios externos**: ningún empleador ni cliente cuyo negocio Gabriel no construyó aparece en el sitio ni en el código. Solo proyectos propios.
 6. **Texto escrito a mano en componentes**: cualquier frase visible que no salga de `src/content/`.
 7. **Promesas no cumplibles**: garantías, tiempos o precios que Gabriel no haya confirmado.
 8. **TODO pendientes** que llegarían a producción como texto visible.
