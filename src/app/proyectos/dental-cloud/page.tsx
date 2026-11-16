@@ -12,23 +12,23 @@ import { whatsappHref } from '@/lib/whatsapp'
 export const metadata: Metadata = {
   title: demoAgenda.meta.title,
   description: demoAgenda.meta.description,
-  alternates: { canonical: '/proyectos/dentalsystem' },
+  alternates: { canonical: '/proyectos/dental-cloud' },
   openGraph: {
     title: demoAgenda.meta.title,
     description: demoAgenda.meta.description,
-    url: '/proyectos/dentalsystem',
+    url: '/proyectos/dental-cloud',
     // Al definir openGraph en la página no se hereda la imagen de la raíz
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: site.share.imageAlt }],
   },
 }
 
-const repo = projects.find((p) => p.slug === 'dentalsystem-webapp')?.repo
+const repo = projects.find((p) => p.slug === 'dental-cloud-system')?.repo
 
 /*
- * Demo interactiva de la agenda de DentalSystem, con datos ficticios.
+ * Demo interactiva de la agenda de Dental Cloud System, con datos ficticios.
  * El texto y la explicación van arriba; la agenda ocupa todo el ancho útil.
  */
-export default function DentalSystemDemoPage() {
+export default function DentalCloudDemoPage() {
   const { tryThis, cta } = demoAgenda
   return (
     <div className="pt-(--nav-height)">

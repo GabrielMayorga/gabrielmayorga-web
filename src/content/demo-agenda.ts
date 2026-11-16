@@ -1,5 +1,5 @@
 /*
- * Demo de la agenda de DentalSystem. Todo es ficticio: clínica, odontólogos,
+ * Demo de la agenda de Dental Cloud System. Todo es ficticio: clínica, odontólogos,
  * pacientes y citas. Replica las reglas del sistema real (horario, intervalos,
  * estados y transiciones, y que dos citas del mismo odontólogo no choquen).
  */
@@ -266,12 +266,12 @@ export const initialAppointments: readonly Appointment[] = [
 /** Textos de la página y de la demo. */
 export const demoAgenda = {
   meta: {
-    title: 'Demo: agenda de DentalSystem · Gabriel Mayorga',
+    title: 'Demo: agenda de Dental Cloud System · Gabriel Mayorga',
     description:
-      'Prueba la agenda de DentalSystem: agenda, confirma y cancela citas de una clínica dental ficticia, sin crear una cuenta.',
+      'Prueba la agenda de Dental Cloud System: agenda, confirma y cancela citas de una clínica dental ficticia, sin crear una cuenta.',
   },
   back: 'Volver a proyectos',
-  eyebrow: 'Demo interactiva · DentalSystem WebApp',
+  eyebrow: 'Demo interactiva · Dental Cloud System',
   title: 'Agenda una cita como lo haría recepción.',
   intro:
     'Esta es una réplica de la agenda del sistema, con sus reglas principales: horario de atención, citas de 30 a 90 minutos y ningún choque de horario con el mismo odontólogo. La clínica, los odontólogos y los pacientes son ficticios, y nada se guarda.',

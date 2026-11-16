@@ -7,7 +7,7 @@ export const aboutSection = {
   title: 'Un ingeniero de sistemas cerca de tu negocio.',
   paragraphs: [
     'Soy Gabriel Mayorga, ingeniero de sistemas. Atiendo en persona a negocios de El Rama y, en remoto, a negocios de cualquier lugar.',
-    'Lo mismo reparo una computadora que no enciende que construyo un sistema web completo: mi tesis, DentalSystem, organiza la agenda, los expedientes y los reportes de una clínica dental.',
+    'Lo mismo reparo una computadora que no enciende que construyo un sistema web completo: mi tesis, Dental Cloud System, organiza la agenda, los expedientes y los reportes de una clínica dental.',
     'Sigo formándome en IA aplicada, desarrollo web y negocio para traer a tu negocio lo que de verdad sirve.',
   ],
   // TODO(foto): agregar la foto profesional en public/ y poner aquí su ruta y alt.

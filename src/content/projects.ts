@@ -13,7 +13,7 @@ export const projectsSection = {
   demoCta: 'Ver demo',
   tryDemoCta: 'Probar la agenda',
   repoCta: 'Ver código',
-  /** Completa el nombre accesible del enlace: "Ver demo de DentalSystem WebApp". */
+  /** Completa el nombre accesible del enlace: "Ver demo de Dental Cloud System". */
   linkContext: (projectName: string) => `de ${projectName}`,
   repoContext: (projectName: string) => `de ${projectName} en GitHub`,
   status: {
@@ -35,8 +35,8 @@ export const projectsSection = {
  */
 export const projects = [
   {
-    slug: 'dentalsystem-webapp',
-    name: 'DentalSystem WebApp',
+    slug: 'dental-cloud-system',
+    name: 'Dental Cloud System',
     type: 'Sistema de gestión · Tesis',
     status: 'in-development',
     summary: 'Sistema de agenda, expedientes y reportes para una clínica dental.',
@@ -46,7 +46,7 @@ export const projects = [
     solution:
       'Una aplicación web que permite a recepción agendar en un calendario sin choques de horario, a los odontólogos llevar el expediente clínico de cada paciente y a la administración consultar indicadores del período que elija. Cada usuario ve solo lo que su rol le permite.',
     stack: ['React', 'Vite', 'Material UI', 'FullCalendar', 'Node.js', 'Express', 'PostgreSQL'],
-    demo: '/proyectos/dentalsystem',
+    demo: '/proyectos/dental-cloud',
     repo: 'https://github.com/GabrielMayorga/dental-day-web',
   },
 ] as const satisfies readonly Project[]
