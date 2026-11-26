@@ -5,6 +5,8 @@
 Portafolio y página de ventas de Gabriel Mayorga (Ingeniero de Sistemas, El Rama, RACCS, Nicaragua).
 **No es un CV: es una página que convierte.** La acción principal de toda la página es escribir por WhatsApp.
 
+**Marca**: todo va bajo el nombre "Gabriel Mayorga" (trabaja solo y en su zona se le compra a una persona de confianza). Nuvix ya no se usa. Los productos propios (Cuadra, Dental Cloud System…) llevan su propio nombre y no se mezclan con la marca personal.
+
 Visitantes, en orden de prioridad:
 
 1. Dueños de negocios pequeños: hablan de problemas ("se me cayó el sistema"), no de tecnologías.
@@ -34,6 +36,7 @@ npm run preview      # build de producción servido a la red local (probar en el
 - Home de una sola página + demos en `/proyectos/<slug>`. Secciones: anclas `<a href="/#seccion">` (funcionan desde cualquier página). Entre páginas: `next/link` (la marca del encabezado con `prefetch={false}`).
 - Demos interactivas en `src/components/demo/`, con datos ficticios en `src/content/demo-*.ts` y reglas puras en `src/lib/`. Diálogos con `<dialog>` nativo (`Sheet`).
 
+- `NEXT_PUBLIC_WHATSAPP` es **obligatoria** (en `.env.local` y en Vercel): sin ella el build se detiene a propósito. El número no se escribe en el código.
 - Antes de usar una API de Next, leer su guía en `node_modules/next/dist/docs/` (ver AGENTS.md).
 - Con `cacheComponents`, `new Date()`, `Date.now()` y `Math.random()` **rompen el prerender**, tanto en Server como en Client Components. Solución: `'use cache'` + `cacheLife()` (ver `src/components/layout/current-year.tsx`).
 - Tema sin parpadeo: script en línea en `<head>` que pone `data-theme` en `<html>` antes del primer pintado (guía oficial: `02-guides/preventing-flash-before-hydration.md`). `<html>` lleva `suppressHydrationWarning`.
@@ -92,8 +95,10 @@ src/
 - Español neutro y natural; **sin jerga nicaragüense**. Identificadores de código en inglés.
 - Escribir desde el problema del cliente: "Procesos manuales que te consumen horas cada semana", no "automatización con IA".
 - **Prohibido inventar**: testimonios, cifras, clientes, logos, años de experiencia o resultados. Lo que falte se marca `// TODO(...)` y se pregunta a Gabriel.
-- **Nunca incluir**: GoPartner, cuentas de streaming ni ningún canal de comisiones.
-- Negocios externos: ningún empleador ni cliente cuyo negocio Gabriel no construyó aparece en el sitio ni en el código. Solo proyectos propios.
+- **GoPartner**: solo en la puerta "Equipar". GoPartner vende, factura, entrega y da la garantía; Gabriel asesora y conecta la venta. **Nunca** mencionar ni insinuar su comisión.
+- **Nunca incluir**: cuentas de streaming ni ningún otro canal de comisiones.
+- Negocios externos: ningún empleador ni cliente cuyo negocio Gabriel no construyó aparece en el sitio ni en el código (única excepción: GoPartner en "Equipar"). Solo proyectos propios.
+- Casos de clientes: sin nombres, equipos identificables, precios internos ni datos de red. Cada caso queda con `visible: false` hasta que Gabriel confirme el permiso del cliente.
 - Proyectos: agregar uno = agregar un objeto a `src/content/projects.ts` (ver skill `add-project`). Campo opcional vacío = no se renderiza. La sección debe verse bien con 0, 1 y 6 proyectos.
 
 ## Calidad (criterios de aceptación)
@@ -131,6 +136,7 @@ src/
 - Dominio propio: poner `NEXT_PUBLIC_SITE_URL` en Vercel (sin ella se usa `VERCEL_PROJECT_PRODUCTION_URL`).
 - Alcance del servicio remoto (afecta `areaServed` en `src/lib/schema.ts`).
 - Foto profesional para "Sobre mí".
-- Marca Nuvix: se conectará después como respaldo del negocio.
+- Configurar `NEXT_PUBLIC_WHATSAPP` en Vercel (Production y Preview).
+- Confirmar que `https://fjmendez.app/c/gabrielmayorga1546` es el enlace definitivo de GoPartner.
 - Garantía o soporte después de entregar: qué cubre y por cuánto tiempo (afecta "Cómo trabajo").
 - ¿Se pueden nombrar las empresas donde trabajó? (afecta "Sobre mí").

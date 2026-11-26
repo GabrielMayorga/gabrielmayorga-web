@@ -2,6 +2,7 @@ import { site } from '@/content/site'
 import { BrandIcon, MailIcon } from '@/components/ui/icons'
 import { Monogram } from '@/components/ui/monogram'
 import { CurrentYear } from './current-year'
+import { ThemeToggle } from './theme-toggle'
 
 const iconLink =
   'grid size-11 place-items-center rounded-full text-fg-muted transition-colors duration-(--duration-fast) hover:bg-surface hover:text-fg'
@@ -20,25 +21,29 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <ul
-          aria-label={site.ui.footerSocialLabel}
-          className="-ml-3 flex items-center gap-1 sm:-mr-3 sm:ml-0"
-        >
-          <li>
-            <a href={`mailto:${site.contact.email}`} className={iconLink}>
-              <MailIcon className="size-5" />
-              <span className="sr-only">{site.contact.email}</span>
-            </a>
-          </li>
-          {site.social.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} target="_blank" rel="noopener noreferrer" className={iconLink}>
-                <BrandIcon brand={link.network} className="size-5" />
-                <span className="sr-only">{`${link.label} ${site.ui.newTab}`}</span>
+        <div className="-ml-3 flex items-center gap-1 sm:-mr-3 sm:ml-0">
+          <ul aria-label={site.ui.footerSocialLabel} className="flex items-center gap-1">
+            <li>
+              <a href={`mailto:${site.contact.email}`} className={iconLink}>
+                <MailIcon className="size-5" />
+                <span className="sr-only">{site.contact.email}</span>
               </a>
             </li>
-          ))}
-        </ul>
+            {site.social.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer" className={iconLink}>
+                  <BrandIcon brand={link.network} className="size-5" />
+                  <span className="sr-only">{`${link.label} ${site.ui.newTab}`}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          {/* En el celular el botón de tema vive aquí (en el encabezado no cabe). Fuera
+              de la lista: es un ajuste, no una red social. */}
+          <div className="sm:hidden">
+            <ThemeToggle toDarkLabel={site.ui.themeToDark} toLightLabel={site.ui.themeToLight} />
+          </div>
+        </div>
       </div>
     </footer>
   )

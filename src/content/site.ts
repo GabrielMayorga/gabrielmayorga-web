@@ -48,8 +48,8 @@ export const site = {
   brand: {
     monogram: '{GM}',
     initials: 'GM',
-    footerTagline: 'IA · AUTOMATIZACIÓN · DESARROLLO',
-    // TODO(nuvix): la marca Nuvix se conectará más adelante como respaldo del negocio.
+    // TODO(fase-2): sumar "· EQUIPAR" cuando exista esa puerta en la página.
+    footerTagline: 'REPARAR · CONSTRUIR',
   },
 
   contact: {
@@ -119,7 +119,8 @@ export const site = {
   /** Textos de interfaz (accesibilidad y controles). */
   ui: {
     skipToContent: 'Saltar al contenido',
-    homeLink: 'Gabriel Mayorga, ir al inicio',
+    /** Tras el nombre visible del encabezado, solo para lectores de pantalla. */
+    homeLinkSuffix: ', ir al inicio',
     navLabel: 'Principal',
     whatsappShort: 'WhatsApp',
     themeToDark: 'Activar tema oscuro',
