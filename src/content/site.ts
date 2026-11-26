@@ -6,10 +6,18 @@ import type { SocialLink } from './types'
  */
 
 /**
- * Número de WhatsApp en formato internacional, sin "+" ni espacios.
- * Se puede sobrescribir con NEXT_PUBLIC_WHATSAPP (ver .env.example).
+ * Número de WhatsApp en formato internacional, sin "+" ni espacios (Nicaragua = 505).
+ * Sale solo de NEXT_PUBLIC_WHATSAPP (.env.local en tu equipo, variables del proyecto
+ * en Vercel). Sin ella el build se detiene: mejor un error claro que publicar un
+ * número viejo escrito en el código.
  */
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP ?? '50586602410'
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP?.trim() ?? ''
+if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+  throw new Error(
+    'Falta NEXT_PUBLIC_WHATSAPP (solo dígitos, con código de país, p. ej. 505XXXXXXXX). ' +
+      'Defínela en .env.local o en las variables del proyecto en Vercel.',
+  )
+}
 
 export const site = {
   name: 'Gabriel Mayorga',
@@ -47,7 +55,6 @@ export const site = {
   contact: {
     whatsapp: {
       number: WHATSAPP_NUMBER,
-      display: '+505 8660 2410',
       message: 'Hola Gabriel, vi tu página y necesito ayuda con…',
     },
     email: 'gabrielmayorga1546@gmail.com',
