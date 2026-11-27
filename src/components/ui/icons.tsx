@@ -107,6 +107,16 @@ export const BoltIcon = (props: IconProps) => (
   </StrokeIcon>
 )
 
+/** Celular junto a un monitor: la puerta "Equipar". */
+export const DevicesIcon = (props: IconProps) => (
+  <StrokeIcon {...props}>
+    <rect x="2" y="4" width="14" height="10" rx="1.5" />
+    <path d="M6 18h6M9 14v4" />
+    <rect x="16" y="9" width="6" height="11" rx="1.5" />
+    <path d="M19 17h.01" />
+  </StrokeIcon>
+)
+
 /* Marcas: trazados oficiales de simple-icons (CC0). LinkedIn ya no está en el
    paquete por pedido de la marca, así que se incluye su glifo aquí. */
 const LINKEDIN_PATH =

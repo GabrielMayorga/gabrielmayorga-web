@@ -4,18 +4,25 @@ import { site } from '@/content/site'
 import type { ServiceIcon } from '@/content/types'
 import { ButtonLink } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { BoltIcon, BrandIcon, BrowserIcon, CheckIcon, WrenchIcon } from '@/components/ui/icons'
+import {
+  ArrowUpRightIcon,
+  BrandIcon,
+  BrowserIcon,
+  CheckIcon,
+  DevicesIcon,
+  WrenchIcon,
+} from '@/components/ui/icons'
 import { Section } from '@/components/ui/section'
 import { whatsappHref } from '@/lib/whatsapp'
 
 const icons: Record<ServiceIcon, ComponentType<SVGProps<SVGSVGElement>>> = {
-  support: WrenchIcon,
-  web: BrowserIcon,
-  automation: BoltIcon,
+  repair: WrenchIcon,
+  build: BrowserIcon,
+  equip: DevicesIcon,
 }
 
 /*
- * Cada tarjeta se lee de arriba abajo como una conversación: qué servicio (línea
+ * Tres puertas: Reparar, Construir, Equipar. Cada tarjeta se lee de arriba abajo como una conversación: qué servicio (línea
  * pequeña), qué te pasa (h3), qué hago (texto), ejemplos y botón a WhatsApp con un
  * mensaje ya escrito para ese servicio. El stack va al final, discreto, para quien
  * lo busque. La tarjeta no es clicable entera: el único destino es el botón.
@@ -41,6 +48,8 @@ export function Services() {
               <h3 className="mt-6 text-title-3 font-semibold">
                 <span className="mb-2 block font-sans text-small font-medium text-fg-muted">
                   {service.name}
+                  {/* Pausa para lectores de pantalla entre la puerta y el problema */}
+                  <span className="sr-only">: </span>
                 </span>
                 {service.problem}
               </h3>
@@ -72,6 +81,17 @@ export function Services() {
                 >
                   {service.cta}
                 </ButtonLink>
+                {'externalLink' in service && (
+                  <ButtonLink
+                    href={service.externalLink.href}
+                    external
+                    variant="ghost"
+                    trailingIcon={<ArrowUpRightIcon />}
+                    className="mt-3 w-full text-center whitespace-normal"
+                  >
+                    {service.externalLink.label}
+                  </ButtonLink>
+                )}
               </div>
             </Card>
           )

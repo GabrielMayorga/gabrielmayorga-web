@@ -10,7 +10,6 @@ import { whatsappHref } from '@/lib/whatsapp'
  */
 export function Hero() {
   const { hero } = site
-  const [firstLine, ...rest] = hero.title.split('. ')
 
   return (
     <section
@@ -27,7 +26,7 @@ export function Hero() {
         <p className="text-small font-medium text-fg-muted">{hero.eyebrow}</p>
 
         <h1 id="hero-title" className="mt-6 max-w-4xl text-display font-semibold">
-          {firstLine}. <span className="text-fg-muted">{rest.join('. ')}</span>
+          {hero.title}
         </h1>
 
         <p className="mt-6 max-w-2xl text-lead text-fg-muted sm:mt-8">{hero.subtitle}</p>

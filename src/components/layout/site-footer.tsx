@@ -13,7 +13,7 @@ export function SiteFooter() {
       <div className="container-page flex flex-col gap-8 py-12 sm:flex-row sm:items-end sm:justify-between">
         <div className="space-y-3">
           <Monogram className="text-title-3" />
-          <p className="font-mono text-caption tracking-[0.12em] text-fg-muted">
+          <p className="font-mono text-caption tracking-[0.12em] text-fg-muted uppercase">
             {site.brand.footerTagline}
           </p>
           <p className="text-caption text-fg-muted">

@@ -49,8 +49,9 @@ export function siteJsonLd() {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: service.name,
-              description: service.description,
+              name: service.serviceName,
+              // Resumen propio de cada puerta: lo que hace Gabriel, sin nombrar a terceros.
+              description: service.serviceSummary,
             },
           })),
         },

@@ -22,11 +22,9 @@ if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
 export const site = {
   name: 'Gabriel Mayorga',
   role: 'Ingeniero de Sistemas',
-  /** Posicionamiento. */
-  tagline: 'Construyo soluciones tecnológicas reales.',
-  title: 'Gabriel Mayorga · Soporte técnico, sitios web y automatización',
+  title: 'Gabriel Mayorga · Soporte técnico, sistemas a la medida y asesoría en equipos',
   description:
-    'Reparo, construyo y equipo la tecnología de tu negocio: soporte técnico, sitios web a la medida y automatización de procesos. En El Rama y en remoto.',
+    'Reparo computadoras y redes, construyo sitios web y sistemas a la medida, y te asesoro para elegir y comprar equipos originales. En El Rama y en remoto.',
   // TODO(dominio): poner NEXT_PUBLIC_SITE_URL cuando exista el dominio propio.
   // Mientras, en Vercel se usa su dominio de producción (variable que Vercel define sola).
   url:
@@ -48,8 +46,8 @@ export const site = {
   brand: {
     monogram: '{GM}',
     initials: 'GM',
-    // TODO(fase-2): sumar "· EQUIPAR" cuando exista esa puerta en la página.
-    footerTagline: 'REPARAR · CONSTRUIR',
+    /** En minúsculas: la mayúscula la pone CSS (los lectores de pantalla deletrean texto en mayúsculas). */
+    footerTagline: 'Reparar · Construir · Equipar',
   },
 
   contact: {
@@ -94,16 +92,16 @@ export const site = {
   /** Vista previa al compartir el enlace (WhatsApp, Facebook, LinkedIn). */
   share: {
     imageAlt:
-      'Gabriel Mayorga, ingeniero de sistemas: soporte técnico, sitios web y automatización en El Rama y en remoto.',
+      'Gabriel Mayorga, ingeniero de sistemas: soporte técnico, sistemas a la medida y asesoría en equipos, en El Rama y en remoto.',
     locale: 'es_NI',
   },
 
   /** Primera pantalla. El h1 es la promesa en lenguaje del cliente. */
   hero: {
     eyebrow: 'Gabriel Mayorga · Ingeniero de Sistemas',
-    title: 'Tu tecnología funcionando. Tú, enfocado en tu negocio.',
+    title: 'Reparo, construyo y te asesoro en tecnología.',
     subtitle:
-      'Reparo equipos y redes, construyo sitios web y automatizo tareas repetitivas. Para negocios en El Rama y en remoto, con cotización por escrito antes de empezar.',
+      'Soporte técnico, sistemas a la medida y equipos originales con factura y garantía, para personas y negocios de El Rama y en remoto.',
     primaryCta: 'Cuéntame qué necesitas',
     secondaryCta: 'Ver servicios',
   },

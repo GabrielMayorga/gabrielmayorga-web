@@ -13,6 +13,7 @@ import {
   BrowserIcon,
   CheckIcon,
   CloseIcon,
+  DevicesIcon,
   MailIcon,
   MoonIcon,
   PlusIcon,
@@ -166,6 +167,7 @@ function Showcase() {
           <WrenchIcon />
           <BrowserIcon />
           <BoltIcon />
+          <DevicesIcon />
           <BrandIcon brand="whatsapp" />
           <BrandIcon brand="github" />
           <BrandIcon brand="linkedin" />

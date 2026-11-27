@@ -1,66 +1,82 @@
 import type { Service } from './types'
 
 /*
- * Servicios: cada tarjeta parte del problema del cliente, no de la tecnología.
- * El campo opcional `stack` es para el visitante técnico; vacío no se renderiza.
+ * Las tres puertas de la home: Reparar, Construir, Equipar. Cada tarjeta parte del
+ * problema del cliente, no de la tecnología. El campo opcional `stack` es para el
+ * visitante técnico; vacío no se renderiza.
+ *
+ * GoPartner solo aparece en "Equipar": GoPartner vende, factura, entrega y da la
+ * garantía; Gabriel asesora y conecta la venta. Nunca se menciona su comisión.
  */
 export const servicesSection = {
   label: 'servicios',
-  title: 'Cuéntame qué te está frenando y te digo cómo lo resolvería.',
+  title: '¿Qué necesitas resolver?',
   intro:
-    'Antes de revisar te digo cuánto cuesta el diagnóstico, y antes de empezar te envío por escrito qué haría y cuánto costaría. Así decides con toda la información.',
+    'Para reparar o construir, antes de revisar te digo cuánto cuesta el diagnóstico, y antes de empezar te envío por escrito qué haría y cuánto costaría. Así decides con toda la información.',
   fallback: '¿Tu caso no aparece aquí? Escríbeme igual y lo vemos.',
   fallbackCta: 'Cuéntamelo por WhatsApp',
 } as const
 
 export const services = [
   {
-    slug: 'soporte-tecnico',
-    icon: 'support',
-    name: 'Soporte técnico',
-    problem: 'Tu computadora, impresora o internet dejó de funcionar.',
+    slug: 'reparar',
+    icon: 'repair',
+    name: 'Reparar',
+    serviceName: 'Soporte técnico y redes',
+    serviceSummary:
+      'Diagnóstico, mantenimiento preventivo y correctivo de computadoras, cambio a SSD, redes e impresoras.',
+    problem: 'Tu equipo o tu red fallan y tu trabajo se detiene.',
     description:
-      'Reviso el equipo o la red, te explico en palabras simples qué falló y qué hace falta para que vuelvas a trabajar.',
+      'Diagnóstico, mantenimiento preventivo y correctivo, cambio a SSD, redes e impresoras. Cotización por escrito antes de empezar.',
     includes: [
       'Computadoras lentas, con virus o que no encienden',
+      'Cambio de disco mecánico a SSD',
       'Redes y Wi-Fi que se caen',
-      'Impresoras y equipos de oficina',
-      'Consejo antes de comprar equipo nuevo',
+      'Impresoras que no imprimen o no se conectan',
     ],
-    cta: 'Pedir soporte',
-    whatsappMessage: 'Hola Gabriel, necesito soporte técnico con…',
+    cta: 'Pedir una revisión',
+    whatsappMessage: 'Hola Gabriel, necesito que revises…',
   },
   {
-    slug: 'sitios-web',
-    icon: 'web',
-    name: 'Sitios web y sistemas',
-    problem: 'Tus clientes no tienen dónde ver lo que ofreces ni cómo escribirte.',
+    slug: 'construir',
+    icon: 'build',
+    name: 'Construir',
+    serviceName: 'Sitios web, sistemas a la medida y automatización',
+    serviceSummary:
+      'Sitios web, sistemas a la medida y automatización de procesos y de la atención por WhatsApp.',
+    problem: 'Tareas repetitivas que te quitan horas, o procesos que siguen en cuaderno o Excel.',
     description:
-      'Construyo un sitio rápido, pensado para el celular, que muestra lo que ofreces y lleva a tus clientes directo a tu WhatsApp.',
+      'Sitios web, sistemas a la medida y automatización de procesos y de la atención por WhatsApp.',
     includes: [
-      'Página de tu negocio con servicios y ubicación',
-      'Diseño hecho primero para el celular',
-      'Botón directo a tu WhatsApp',
+      'Página de tu negocio con botón directo a tu WhatsApp',
       'Sistemas a la medida: citas, expedientes y reportes',
-    ],
-    stack: ['Next.js', 'React', 'Node.js', 'PostgreSQL'],
-    cta: 'Cotizar mi sitio',
-    whatsappMessage: 'Hola Gabriel, quiero un sitio web para mi negocio…',
-  },
-  {
-    slug: 'automatizacion',
-    icon: 'automation',
-    name: 'Automatización',
-    problem: 'Procesos manuales que te consumen horas cada semana.',
-    description:
-      'Identifico las tareas que se repiten en tu negocio y las automatizo para que dejes de hacerlas a mano y dediques ese tiempo a tus clientes.',
-    includes: [
       'Respuestas y catálogo en WhatsApp Business',
       'Reportes que se arman sin copiar y pegar',
-      'Textos y respuestas que hoy escribes desde cero, preparados con IA',
     ],
-    stack: ['WhatsApp Business'],
-    cta: 'Automatizar una tarea',
-    whatsappMessage: 'Hola Gabriel, quiero automatizar una tarea de mi negocio…',
+    stack: ['Next.js', 'React', 'Node.js', 'PostgreSQL'],
+    cta: 'Contar mi proceso',
+    whatsappMessage: 'Hola Gabriel, quiero dejar de hacer a mano…',
+  },
+  {
+    slug: 'equipar',
+    icon: 'equip',
+    name: 'Equipar',
+    serviceName: 'Asesoría para comprar equipos',
+    serviceSummary:
+      'Asesoría para elegir celulares, televisores y computadoras según tu uso y presupuesto.',
+    problem: 'Quieres comprar un celular, una TV o una computadora sin dudas.',
+    description:
+      'Te asesoro según tu uso y presupuesto. Gestiono tu pedido con GoPartner, que factura, entrega y da la garantía.',
+    includes: [
+      'Celulares, televisores y computadoras',
+      'Equipos originales con factura y garantía',
+    ],
+    cta: 'Pedir asesoría',
+    whatsappMessage: 'Hola Gabriel, quiero comprar… y me gustaría tu recomendación.',
+    externalLink: {
+      label: 'Ver tienda en GoPartner',
+      // TODO(confirmar): ¿es este el enlace definitivo de GoPartner?
+      href: 'https://fjmendez.app/c/gabrielmayorga1546',
+    },
   },
 ] as const satisfies readonly Service[]
